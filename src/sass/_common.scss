@@ -11,6 +11,7 @@ body {
   justify-content: center;
   width: 350px;
   height: 55px;
+  margin-bottom: 15px;
   padding-bottom: 10px;
   padding-top: 10px;
   border-radius:0 0 8px 8px;
@@ -24,11 +25,6 @@ input[name="searcQuery"] {
   border-radius: 8px;
 }
 
-
-.gallery {
-  background-color: limegreen;
-  margin-bottom: 12px;
-}
 
 .load-more {
   align-self: center;
