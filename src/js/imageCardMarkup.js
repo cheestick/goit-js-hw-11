@@ -8,7 +8,9 @@ export function imageCardMarkup({
   downloads,
 }) {
   return `<div class="photo-card">
-    <img src="${webformatURL}" alt="${tags}" loading="lazy" data-original-image="${largeImageURL}" />
+    <a href="${largeImageURL}">
+      <img src="${webformatURL}" alt="${tags}" loading="lazy" data-original-image="${largeImageURL}" />
+    </a>
     <div class="info">
       <p class="info-item">
         <b>Likes</b>

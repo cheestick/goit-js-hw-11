@@ -1,3 +1,5 @@
+import simpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import * as APIService from './js/APIService';
 import * as Markup from './js/imageCardMarkup';
 import refs from './js/refs';
@@ -13,6 +15,6 @@ async function onSearchFormSubmit(event) {
   console.log(imageList);
   const markup = imageList.map(Markup.imageCardMarkup).join('');
   refs.gallery.innerHTML = markup;
-
+  new simpleLightbox('.gallery a');
   //   event.target.reset();
 }
