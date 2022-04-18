@@ -1,5 +1,18 @@
 import * as APIService from './js/APIService';
+import * as Markup from './js/imageCardMarkup';
 import refs from './js/refs';
 import './sass/main.scss';
 
-APIService.fetchPhotos('cars').then(console.log).catch(console.log);
+refs.searchForm.addEventListener('submit', onSearchFormSubmit);
+
+async function onSearchFormSubmit(event) {
+  event.preventDefault();
+
+  const searchQuery = event.target.elements.searchQuery.value;
+  const imageList = await APIService.fetchPhotos(searchQuery);
+  console.log(imageList);
+  const markup = imageList.map(Markup.imageCardMarkup).join('');
+  refs.gallery.innerHTML = markup;
+
+  //   event.target.reset();
+}
