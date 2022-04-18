@@ -2,24 +2,32 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // align-content: center;
   align-items: center;
   min-width: 420px;
+  margin-top: 70px;
   margin-bottom: 50px;
 }
 
 
+.form-container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 .search-form {
   display: flex;
   justify-content: center;
-  width: 350px;
+  width: 360px;
   height: 55px;
   margin-bottom: 15px;
   padding-bottom: 10px;
   padding-top: 10px;
   border-radius:0 0 8px 8px;
   align-self: center;
-  background-color: rgba(23, 41, 80, 0.671);
+  background-color: rgba(55, 77, 124, 0.822);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
   rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
