@@ -1,4 +1,5 @@
+import * as APIService from './js/APIService';
 import refs from './js/refs';
 import './sass/main.scss';
 
-console.log(refs);
+APIService.fetchPhotos('cars').then(console.log).catch(console.log);
