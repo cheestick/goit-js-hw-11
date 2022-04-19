@@ -1,10 +1,12 @@
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import refs from './js/refs';
 import * as APIService from './js/APIService';
 import * as View from './js/View';
-import refs from './js/refs';
+import * as LoadMore from './js/loadMore';
 import './sass/main.scss';
 
+LoadMore.hide();
 refs.searchForm.addEventListener('submit', onSearchFormSubmit);
 
 async function onSearchFormSubmit(event) {
@@ -17,9 +19,9 @@ async function onSearchFormSubmit(event) {
     View.notifySearchQuery(response);
     View.renderGallery(refs.gallery, response.hits);
     new simpleLightbox('.gallery a');
+    LoadMore.show();
   } catch (error) {
-    throw new Error('Error', error.message);
+    event.target.reset();
+    return;
   }
-
-  // event.target.reset();
 }

@@ -11,7 +11,7 @@ export function renderGallery(gallery, data) {
 export function notifySearchQuery({ hits, totalHits }) {
   if (!hits.length) {
     Notify.failure('Sorry, there are no images matching your search query. Please try again.');
-    return;
+    throw new Error('Wrong request');
   }
 
   Notify.success(`Hooray! We found ${totalHits} images.`);
