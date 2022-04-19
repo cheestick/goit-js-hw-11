@@ -5,6 +5,7 @@ import * as APIService from './js/APIService';
 import * as View from './js/View';
 import * as LoadMore from './js/loadMore';
 import QueryController from './js/QueryController';
+import * as Utils from './js/Utils';
 import './sass/main.scss';
 
 LoadMore.hide();
@@ -50,6 +51,7 @@ async function onClickMore(event) {
     const searchString = QueryController.queryString;
     const response = await APIService.fetchPhotos(searchString, page);
     View.renderGallery(refs.gallery, response.hits);
+    Utils.scroll();
     slider.refresh();
   } catch (error) {
     return;
