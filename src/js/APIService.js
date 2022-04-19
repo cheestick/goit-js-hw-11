@@ -13,7 +13,7 @@ const queryParams = {
   safesearch: 'true',
 };
 
-export async function fetchPhotos(query = 'cars', page = 10) {
+export async function fetchPhotos(query = 'cars', page = 1) {
   const response = await axios.get(BASE_URL, {
     params: { ...queryParams, q: query, page },
   });
