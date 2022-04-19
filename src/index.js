@@ -21,5 +21,5 @@ async function onSearchFormSubmit(event) {
     throw new Error('Error', error.message);
   }
 
-  event.target.reset();
+  // event.target.reset();
 }
