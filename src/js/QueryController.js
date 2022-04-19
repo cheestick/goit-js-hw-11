@@ -52,7 +52,6 @@ class QueryController {
   }
 
   hasNextPage() {
-    console.log('hasNextPage', this.page, ' ', this.totalPages);
     if (this.page + 1 > this.totalPages) return false;
     return true;
   }

@@ -45,9 +45,7 @@ async function onSearchFormSubmit(event) {
 
 async function onClickMore(event) {
   try {
-    console.log(QueryController.page);
     const page = QueryController.nextPage;
-    console.log(QueryController.page);
     const searchString = QueryController.queryString;
     const response = await APIService.fetchPhotos(searchString, page);
     View.renderGallery(refs.gallery, response.hits);
