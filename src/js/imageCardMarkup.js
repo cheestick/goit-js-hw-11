@@ -31,3 +31,7 @@ export function imageCardMarkup({
     </div>
   </div>`;
 }
+
+export function imageGalleryMarkup(imageList) {
+  return imageList.map(imageCardMarkup).join('');
+}
