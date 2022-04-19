@@ -14,9 +14,9 @@ const queryParams = {
 };
 
 export async function fetchPhotos(query = 'cars', page = 10) {
-  const data = await axios.get(BASE_URL, {
+  const response = await axios.get(BASE_URL, {
     params: { ...queryParams, q: query, page },
   });
 
-  return data.data.hits;
+  return response.data;
 }
