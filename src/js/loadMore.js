@@ -9,3 +9,7 @@ export function hide() {
 export function show() {
   button.classList.remove('hidden');
 }
+
+export function addClickListener(onClick) {
+  button.addEventListener('click', onClick);
+}
