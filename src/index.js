@@ -16,8 +16,10 @@ refs.searchForm.addEventListener('submit', onSearchFormSubmit);
 
 async function onSearchFormSubmit(event) {
   event.preventDefault();
+
   const searchQuery = event.target.elements.searchQuery.value.trim();
   if (!searchQuery) return;
+
   QueryController.queryString = searchQuery;
   if (!QueryController.isSearchNew()) {
     return;
@@ -49,8 +51,8 @@ async function onClickMore(event) {
     const searchString = QueryController.queryString;
     const response = await APIService.fetchPhotos(searchString, page);
     View.renderGallery(refs.gallery, response.hits);
-    Utils.scroll();
     slider.refresh();
+    Utils.scroll();
   } catch (error) {
     return;
   }
