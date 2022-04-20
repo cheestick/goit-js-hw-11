@@ -18,5 +18,9 @@ export async function fetchPhotos(query = 'cars', page = 1) {
     params: { ...queryParams, q: query, page },
   });
 
+  if (!response.ok) {
+    throw new Error(`An error occurred: ${response.status}`);
+  }
+
   return response.data;
 }
