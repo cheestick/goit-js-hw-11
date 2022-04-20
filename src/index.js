@@ -61,3 +61,31 @@ async function onClickMore(event) {
     return;
   }
 }
+
+window.addEventListener(
+  'scroll',
+  async () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    console.log(scrollTop, '-', scrollHeight, '-', clientHeight);
+    if (!QueryController.hasNextPage() && scrollHeight - scrollTop > clientHeight - 50) {
+      View.notifyEndOfGallery();
+      LoadMore.hide();
+      return;
+    }
+    if (scrollTop + clientHeight >= scrollHeight - 5 && QueryController.hasNextPage()) {
+      try {
+        const page = QueryController.nextPage;
+        const searchString = QueryController.queryString;
+        const response = await APIService.fetchPhotos(searchString, page);
+        View.renderGallery(refs.gallery, response.hits);
+        Utils.scroll();
+        slider.refresh();
+      } catch (error) {
+        return;
+      }
+    }
+  },
+  {
+    passive: true,
+  },
+);
